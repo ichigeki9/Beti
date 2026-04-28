@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-primary: #1a1a1a;
-            --color-secondary: #6b5844;
-            --color-accent: #a67c52;
-            --color-bg: #f5f3f0;
-            --color-bg-alt: #e8e4de;
-            --color-text: #1a1a1a;
-            --color-text-light: #4a4a4a;
+            --color-primary: #2d2418;
+            --color-secondary: #8b6f47;
+            --color-accent: #b8956a;
+            --color-bg: #f7f5f2;
+            --color-bg-alt: #e9e4dc;
+            --color-text: #2d2418;
+            --color-text-light: #5a4a3a;
             --font-display: 'Cormorant Garamond', serif;
             --font-body: 'Work Sans', sans-serif;
         }
@@ -44,8 +44,8 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(107, 88, 68, 0.15);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(139, 111, 71, 0.15);
+            box-shadow: 0 2px 10px rgba(45, 36, 24, 0.05);
             animation: slideDown 0.6s ease-out;
         }
 
@@ -148,7 +148,7 @@
             right: 0;
             width: 50%;
             height: 100%;
-            background: linear-gradient(135deg, #d4cdc4 0%, #e8e4de 100%);
+            background: linear-gradient(135deg, #ddd5c7 0%, #e9e4dc 100%);
             clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
             z-index: 0;
         }
@@ -288,7 +288,7 @@
 
         /* About Section */
         .about {
-            background: #ebe7e0;
+            background: #eae5db;
             color: var(--color-text);
         }
 
@@ -310,7 +310,7 @@
             right: -20px;
             width: 100%;
             height: 100%;
-            background: #d4cdc4;
+            background: #ddd5c7;
             z-index: -1;
         }
 
@@ -338,7 +338,7 @@
         .credentials {
             margin-top: 2rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(107, 88, 68, 0.2);
+            border-top: 1px solid rgba(139, 111, 71, 0.25);
         }
 
         .credential-item {
@@ -420,8 +420,15 @@
 
         /* Contact Section */
         .contact {
-            background: #2a2520;
+            background: #3d3024;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact .container {
+            position: relative;
+            z-index: 1;
         }
 
         .contact .section-subtitle {
@@ -432,11 +439,50 @@
             color: white;
         }
 
-        .contact-content {
+        .contact-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
+            grid-template-columns: 45% 55%;
+            gap: 0;
             margin-top: 3rem;
+            min-height: 600px;
+        }
+
+        .contact-image-side {
+            position: relative;
+            margin-left: -2rem;
+            overflow: hidden;
+        }
+
+        .contact-building {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .contact-image-side::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(to right, transparent, #3d3024);
+            pointer-events: none;
+        }
+
+        .contact-details {
+            padding-left: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
         }
 
         .contact-info h3 {
@@ -475,7 +521,7 @@
             background: rgba(255, 255, 255, 0.08);
             padding: 2.5rem;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(166, 124, 82, 0.2);
+            border: 1px solid rgba(184, 149, 106, 0.25);
         }
 
         .form-group {
@@ -541,10 +587,10 @@
 
         /* Footer */
         footer {
-            background: #1f1c19;
+            background: #2d2418;
             color: white;
             padding: 3rem 2rem;
-            border-top: 1px solid rgba(166, 124, 82, 0.2);
+            border-top: 1px solid rgba(184, 149, 106, 0.2);
         }
 
         .footer-content {
@@ -579,7 +625,7 @@
                 padding: 2rem;
                 gap: 2rem;
                 transition: left 0.3s ease;
-                border-top: 1px solid rgba(107, 88, 68, 0.15);
+                border-top: 1px solid rgba(139, 111, 71, 0.15);
             }
 
             .nav-links.active {
@@ -611,6 +657,26 @@
             .services-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .contact-image-side {
+                height: 300px;
+                margin-left: -1rem;
+                margin-right: -1rem;
+            }
+
+            .contact-image-side::after {
+                display: none;
+            }
+
+            .contact-details {
+                padding-left: 0;
+                padding-top: 2rem;
             }
 
             .contact-content {
@@ -693,18 +759,7 @@
                 <a href="#contact" class="cta-button">Umów konsultację</a>
             </div>
             <div class="hero-image">
-                <svg width="100%" height="500" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#6b5844" stroke-width="0.5" opacity="0.2"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="#d4cdc4"/>
-                    <rect width="100%" height="100%" fill="url(#grid)"/>
-                    <rect x="10%" y="15%" width="30%" height="40%" fill="#6b5844" opacity="0.25"/>
-                    <rect x="45%" y="35%" width="45%" height="50%" fill="#a67c52" opacity="0.2"/>
-                    <text x="50%" y="50%" font-family="Cormorant Garamond, serif" font-size="120" fill="#6b5844" opacity="0.12" text-anchor="middle" dominant-baseline="middle">§</text>
-                </svg>
+                <img class="about-image" src="beata_dyl_sesja--2.jpg" alt="Profesjonalne zdjęcie radcy prawnego">
             </div>
         </div>
     </section>
@@ -718,14 +773,7 @@
             </div>
             <div class="about-content">
                 <div class="about-image-wrapper">
-                    <svg class="about-image" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100%" height="100%" fill="#d4cdc4"/>
-                        <rect x="20%" y="10%" width="60%" height="25%" fill="#6b5844" opacity="0.3"/>
-                        <rect x="10%" y="40%" width="35%" height="35%" fill="#a67c52" opacity="0.25"/>
-                        <rect x="50%" y="50%" width="40%" height="40%" fill="#6b5844" opacity="0.2"/>
-                        <circle cx="30%" cy="65%" r="80" fill="#a67c52" opacity="0.2"/>
-                        <text x="50%" y="50%" font-family="Cormorant Garamond, serif" font-size="180" fill="#6b5844" opacity="0.08" text-anchor="middle">AK</text>
-                    </svg>
+                    <img class="about-image" src="beata_dyl_sesja--32.jpg" alt="Profesjonalne zdjęcie radcy prawnego">
                 </div>
                 <div class="about-text">
                     <h3>Beata Dyl</h3>
@@ -804,47 +852,54 @@
                 <div class="section-subtitle">Skontaktuj się</div>
                 <h2 class="section-title">Umów konsultację</h2>
             </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Dane kontaktowe</h3>
-                    <div class="contact-item">
-                        <strong>Telefon</strong>
-                        <a href="tel:+48123456789">+48 123 456 789</a>
-                    </div>
-                    <div class="contact-item">
-                        <strong>Email</strong>
-                        <a href="/cdn-cgi/l/email-protection#e98286879d88829da98887878882869e88859a8288c79985"><span class="__cf_email__" data-cfemail="f79c989983969c83b7969999969c9880969b849c96d9879b">[email&#160;protected]</span></a>
-                    </div>
-                    <div class="contact-item">
-                        <strong>Adres</strong>
-                        ul. Przykładowa 12/34<br>
-                        00-001 Warszawa
-                    </div>
-                    <div class="contact-item">
-                        <strong>Godziny przyjęć</strong>
-                        Poniedziałek - Piątek: 9:00 - 17:00<br>
-                        (wizyty po wcześniejszym umówieniu)
+            <div class="contact-wrapper">
+                <div class="contact-image-side">
+                    <img src="1000036418.jpg" alt="Budynek kancelarii prawnej" class="contact-building">
+                </div>
+                <div class="contact-details">
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <h3>Dane kontaktowe</h3>
+                            <div class="contact-item">
+                                <strong>Telefon</strong>
+                                <a href="tel:+48123456789">+48 123 456 789</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Email</strong>
+                                <a href="mailto:kontakt@annakowalska.pl">kontakt@annakowalska.pl</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Adres</strong>
+                                ul. Przykładowa 12/34<br>
+                                00-001 Warszawa
+                            </div>
+                            <div class="contact-item">
+                                <strong>Godziny przyjęć</strong>
+                                Poniedziałek - Piątek: 9:00 - 17:00<br>
+                                (wizyty po wcześniejszym umówieniu)
+                            </div>
+                        </div>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Imię i nazwisko</label>
+                                <input type="text" id="name" name="name" required placeholder="Jan Kowalski">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="jan@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+48 123 456 789">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Wiadomość</label>
+                                <textarea id="message" name="message" required placeholder="Opisz swoją sprawę..."></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Wyślij wiadomość</button>
+                        </form>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Imię i nazwisko</label>
-                        <input type="text" id="name" name="name" required placeholder="Jan Kowalski">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="jan@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Telefon</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+48 123 456 789">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Wiadomość</label>
-                        <textarea id="message" name="message" required placeholder="Opisz swoją sprawę..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Wyślij wiadomość</button>
-                </form>
             </div>
         </div>
     </section>
